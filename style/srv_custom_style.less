@@ -1,0 +1,228 @@
+/* Custom styles for EHRI GeoNetwork node.
+   Rather a lot of CSS hacks currently...
+*/
+
+@import "srv_custom_fonts";
+
+@primary: #83014c; // EHRI purple
+@secondary: #314053; // Darker blue
+@white: #fff;
+@topic-color: #558ba3;
+@border-radius: 0.1rem;
+@text-dark: #333;
+@bg-color: #ebebeb;
+@footer-color: #5e5e5e;
+
+@headings-font-family: 'Barlow Semi Condensed', sans-serif;
+@font-family-base: 'Roboto', sans-serif;
+
+
+body {
+	font-family: @font-family-base;
+	font-weight: 400;
+	line-height: 1.5;
+}
+
+a {
+	color: @primary;
+}
+
+a:hover,
+a:focus
+{
+	color: darken(@primary, 10%);
+	text-decoration: underline;
+}
+
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus
+{
+	background-color: @primary;
+	color: @white;
+}
+
+.gn-topic .panel {
+	background-color: @topic-color;
+  	border-color: darken(@topic-color, 4%);
+}
+
+.gn-topic .panel:hover,
+.gn-topic .panel .panel-footer {
+	background-color: darken(@topic-color, 4%); //#467f98;
+	border-color: darken(@topic-color, 4%);
+}
+
+.gn-row-topics .gn-topic-select input + span {
+	color: @primary;
+}
+
+.gn-row-topics .gn-topic-select input:checked + span {
+	background-color: @primary;
+	color: @white;
+}
+
+/* Border radii... */
+.gn-card.list-group-item:first-child {
+	border-top-right-radius: @border-radius;
+    border-top-left-radius: @border-radius;
+}
+
+.gn-card,
+.btn,
+.panel,
+.nav-pills > li > a,
+.gn-row-topics .gn-topic-select input + span,
+.gn-form-any input.input-lg,
+.form-control,
+.input-group-addon
+{
+	border-radius: @border-radius;
+}
+
+/* Search page overrides */
+
+.gn-search-page > .ng-scope > div > .ng-scope:first-child {
+	background-image: url(https://ehri-portal.s3.eu-central-1.amazonaws.com/banners/warsaw_teunisse-crop-bw.jpg);
+    background-size: contain;
+}
+
+.gn-search-page .gn-row-main {
+	background-color: @secondary;
+	opacity: 85%;
+	padding: 4rem 0;
+}
+
+.gn-search-page .gn-row-main .input-group {
+	background-color: rgba(224,224,224,0.19);
+	color: @white;
+	border: 1px solid rgba(224, 224, 224, 0.59);
+}
+
+.gn-search-page .gn-row-main .input-group input,
+.gn-search-page .gn-row-main .input-group .btn
+{
+	color: @white;
+	border-color: transparent;
+	background-color: unset;
+}
+
+.gn-search-page .gn-row-main .input-group input::placeholder {
+	color: @white;
+	opacity: 1;
+}
+
+.gn-search-page .gn-row-main .search-over,
+.gn-search-page .gn-row-main .search-over strong
+{
+	color: @white;
+}
+
+.gn-card .gn-card-heading .gn-md-title a:hover {
+	color: @primary;
+}
+
+/* Header */
+.gn-top-bar .gn-logo-link {
+	display: flex; // this fixes lots of issues at expense of compatibility
+}
+
+@media(min-width: 767px) {
+	.gn-logo {
+		max-height: 36px;
+	}
+}
+
+@media(max-width: 767px) {
+	.navbar-default .navbar-nav > li > a,
+	.navbar-default .navbar-nav > li > a:hover,
+	.navbar-default .navbar-nav > li > a:focus,
+	.navbar-default .navbar-nav > li.active > a,
+	.navbar-default .navbar-nav > li.active > a:hover,
+	.navbar-default .navbar-nav > li.active > a:focus
+	{
+    	color: @text-dark;
+	    background-color: transparent;
+	}
+
+	.navbar-default .navbar-header a .gn-name {
+		color: @white;
+	}
+
+	.navbar-default .navbar-header .gn-logo-link .gn-logo {
+		margin-top: 0;
+		margin-left: 10px;
+	}
+}
+
+.navbar-default .navbar-header .gn-logo-link .gn-logo,
+.navbar-default .navbar-collapse .gn-logo-link .gn-logo {
+	margin-top: -3px;
+}
+
+.navbar-default {
+	font-family: @headings-font-family;
+}
+
+.navbar-default .navbar-collapse > .gn-menu-xs > li > a,
+.navbar-default .navbar-header > .btn-link
+{
+	text-transform: uppercase;
+	font-weight: 400;
+	font-size: 1.25rem;
+}
+
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus,
+[ng-app="gn_admin"] .gn-top-bar,
+[ng-app="gn_admin"] .gn-top-bar .navbar-collapse
+{
+	background-color: @secondary;
+	color: @white;
+}
+
+[ng-app="gn_admin"] .gn-top-bar .navbar-nav > li > a {
+    color: @white;
+}
+.gn-bottom-bar.navbar-default .navbar-nav > li > a:hover,
+.gn-bottom-bar.navbar-default .navbar-nav > li > a:focus,
+.gn-bottom-bar.navbar-default .navbar-nav > .open > a,
+.gn-bottom-bar.navbar-default .navbar-nav > .open > a:hover,
+.gn-bottom-bar.navbar-default .navbar-nav > .open > a:focus,
+.gn-bottom-bar.navbar-default .navbar-nav > .active > a,
+.gn-bottom-bar.navbar-default .navbar-nav > .active > a:hover,
+.gn-bottom-bar.navbar-default .navbar-nav > .active > a:focus
+{
+	background-color: transparent;
+}
+
+[ng-app="gn_admin"] .gn-top-bar .navbar-nav > li > a:hover,
+[ng-app="gn_admin"] .gn-top-bar .navbar-nav > li > a:focus,
+[ng-app="gn_admin"] .gn-top-bar .navbar-nav > .open > a,
+[ng-app="gn_admin"] .gn-top-bar .navbar-nav > .open > a:hover,
+[ng-app="gn_admin"] .gn-top-bar .navbar-nav > .open > a:focus,
+[ng-app="gn_admin"] .gn-top-bar .navbar-nav > .active > a,
+[ng-app="gn_admin"] .gn-top-bar .navbar-nav > .active > a:hover,
+[ng-app="gn_admin"] .gn-top-bar .navbar-nav > .active > a:focus
+{
+    color: @bg-color;
+	background-color: @secondary;
+}
+
+[ng-app="gn_editor"] .gn-top-bar .navbar-text {
+	color: @white;
+}
+
+/* Footer */
+.gn-bottom-bar {
+	font-family: @font-family-base;
+	font-size: 1rem;
+	font-weight: 400;
+	color: @footer-color;
+	position: absolute;
+}
+
+.gn-bottom-bar .navbar-nav > li > a {
+	line-height: 1.5;
+}
