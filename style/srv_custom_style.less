@@ -12,6 +12,7 @@
 @text-dark: #333;
 @bg-color: #ebebeb;
 @footer-color: #5e5e5e;
+@footer-line-height: 1.5;
 
 @headings-font-family: 'Barlow Semi Condensed', sans-serif;
 @font-family-base: 'Roboto', sans-serif;
@@ -224,5 +225,13 @@ a:focus
 }
 
 .gn-bottom-bar .navbar-nav > li > a {
-	line-height: 1.5;
+	line-height: @footer-line-height;
+}
+
+// Remove GeoNetwork 'about' and 'Github' links
+// TODO: remove this hack when a setting becomes available
+.gn-bottom-bar .navbar-nav > li:nth-child(2),
+.gn-bottom-bar .navbar-nav > li:nth-child(3)
+{
+	display: none;
 }
