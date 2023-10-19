@@ -12,7 +12,6 @@
 @text-dark: #333;
 @bg-color: #ebebeb;
 @footer-color: #5e5e5e;
-@footer-line-height: 1.5;
 
 @headings-font-family: 'Barlow Semi Condensed', sans-serif;
 @font-family-base: 'Roboto', sans-serif;
@@ -154,6 +153,15 @@ a:focus
 		margin-top: 0;
 		margin-left: 10px;
 	}
+
+	.navbar-default .navbar-accessible.navbar-collapse {
+		background-color: rgb(245, 245, 245);
+		color: @text-dark;
+	}
+
+	.navbar-default .navbar-accessible.navbar-collapse .gn-menuitem-xs > a {
+		color: @text-dark;
+	}
 }
 
 .navbar-default .navbar-header .gn-logo-link .gn-logo,
@@ -163,6 +171,7 @@ a:focus
 
 .navbar-default {
 	font-family: @headings-font-family;
+	border-color: @secondary;
 }
 
 .navbar-default .navbar-collapse > .gn-menu-xs > li > a,
@@ -176,14 +185,15 @@ a:focus
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus,
-[ng-app="gn_admin"] .gn-top-bar,
-[ng-app="gn_admin"] .gn-top-bar .navbar-collapse
+.navbar-default .gn-user-info .gn-user-role, 
+.gn-top-bar,
+.gn-top-bar .navbar-collapse
 {
 	background-color: @secondary;
 	color: @white;
 }
 
-[ng-app="gn_admin"] .gn-top-bar .navbar-nav > li > a {
+.gn-top-bar .navbar-nav > li > a {
     color: @white;
 }
 .gn-bottom-bar.navbar-default .navbar-nav > li > a:hover,
@@ -198,22 +208,23 @@ a:focus
 	background-color: transparent;
 }
 
-[ng-app="gn_admin"] .gn-top-bar .navbar-nav > li > a:hover,
-[ng-app="gn_admin"] .gn-top-bar .navbar-nav > li > a:focus,
-[ng-app="gn_admin"] .gn-top-bar .navbar-nav > .open > a,
-[ng-app="gn_admin"] .gn-top-bar .navbar-nav > .open > a:hover,
-[ng-app="gn_admin"] .gn-top-bar .navbar-nav > .open > a:focus,
-[ng-app="gn_admin"] .gn-top-bar .navbar-nav > .active > a,
-[ng-app="gn_admin"] .gn-top-bar .navbar-nav > .active > a:hover,
-[ng-app="gn_admin"] .gn-top-bar .navbar-nav > .active > a:focus
+.gn-top-bar .navbar-nav > li > a:hover,
+.gn-top-bar .navbar-nav > li > a:focus,
+.gn-top-bar .navbar-nav > .open > a,
+.gn-top-bar .navbar-nav > .open > a:hover,
+.gn-top-bar .navbar-nav > .open > a:focus,
+.gn-top-bar .navbar-nav > .active > a,
+.gn-top-bar .navbar-nav > .active > a:hover,
+.gn-top-bar .navbar-nav > .active > a:focus
 {
     color: @bg-color;
 	background-color: @secondary;
 }
 
-[ng-app="gn_editor"] .gn-top-bar .navbar-text {
+.gn-top-bar .navbar-text {
 	color: @white;
 }
+
 
 /* Footer */
 .gn-bottom-bar {
@@ -225,13 +236,5 @@ a:focus
 }
 
 .gn-bottom-bar .navbar-nav > li > a {
-	line-height: @footer-line-height;
-}
-
-// Remove GeoNetwork 'about' and 'Github' links
-// TODO: remove this hack when a setting becomes available
-.gn-bottom-bar .navbar-nav > li:nth-child(2),
-.gn-bottom-bar .navbar-nav > li:nth-child(3)
-{
-	display: none;
+	line-height: 1.5;
 }
