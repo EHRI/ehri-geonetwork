@@ -125,7 +125,28 @@ a:focus
 /* Header */
 .gn-top-bar .gn-logo-link {
 	display: flex; // this fixes lots of issues at expense of compatibility
+	align-items: center;
 }
+
+.navbar-default .navbar-header {
+	display: flex;
+	align-items: center;
+}
+
+.gn-top-bar .gn-logo-link .gn-logo,
+.gn-top-bar .gn-logo-link .gn-name
+{
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+.navbar-default .navbar-toggle {
+	margin-left: auto;
+}
+
+
 
 @media(min-width: 767px) {
 	.gn-logo {
@@ -151,7 +172,7 @@ a:focus
 
 	.navbar-default .navbar-header .gn-logo-link .gn-logo {
 		margin-top: 0;
-		margin-left: 10px;
+		margin-left: 20px;
 	}
 
 	.navbar-default .navbar-accessible.navbar-collapse {
@@ -162,11 +183,6 @@ a:focus
 	.navbar-default .navbar-accessible.navbar-collapse .gn-menuitem-xs > a {
 		color: @text-dark;
 	}
-}
-
-.navbar-default .navbar-header .gn-logo-link .gn-logo,
-.navbar-default .navbar-collapse .gn-logo-link .gn-logo {
-	margin-top: -3px;
 }
 
 .navbar-default {
@@ -186,7 +202,7 @@ a:focus
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus,
-.navbar-default .gn-user-info .gn-user-role, 
+.navbar-default .gn-user-info .gn-user-role,
 .gn-top-bar,
 .gn-top-bar .navbar-collapse
 {
